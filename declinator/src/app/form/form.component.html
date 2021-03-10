@@ -1,0 +1,2 @@
+<input *ngIf="wortstamm" readonly value="{{getVal}}">
+<input *ngIf="!wortstamm" (keyup)="onKey($event, this.kasus, this.nummerus)" placeholder="servus">

@@ -7,11 +7,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NbThemeModule, NbLayoutModule, NbSidebarModule, NbButtonModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { ImpressumComponent } from './impressum/impressum.component';
+import { TableComponent } from './table/table.component';
+import { FormComponent } from './form/form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ImpressumComponent
+    ImpressumComponent,
+    TableComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
