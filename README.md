@@ -1,0 +1,1 @@
+angular-latin-declinator
