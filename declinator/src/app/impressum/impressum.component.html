@@ -1,5 +1,5 @@
-<button nbButton status="info" *ngIf="!impressumActivated" (click)="toggleImpressum()">Zeige Impressum</button>
-<button nbButton status="danger" *ngIf="impressumActivated" (click)="toggleImpressum()">Verstecke Impressum</button>
+<button class="imp" nbButton status="info" *ngIf="!impressumActivated" (click)="toggleImpressum()">Zeige Impressum</button>
+<button class="imp" nbButton status="danger" *ngIf="impressumActivated" (click)="toggleImpressum()">Verstecke Impressum</button>
 
 <button nbButton status="info" *ngIf="!dataActivated" (click)="toggleData()">Zeige Datenschutzerklärung</button>
 <button nbButton status="danger" *ngIf="dataActivated" (click)="toggleData()">Verstecke Datenschutzerklärung</button>
