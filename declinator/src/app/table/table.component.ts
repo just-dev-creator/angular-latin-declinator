@@ -10,7 +10,7 @@ export class TableComponent implements OnInit {
   constructor() { }
   entry: String | undefined;
   wortstamm: String | undefined;
-  gender: String | undefined
+  gender: String | undefined;
 
   get onKeyFunction() {
     return this.onKey.bind(this)
@@ -48,15 +48,11 @@ export class TableComponent implements OnInit {
     } else if (kasus=="gen") {
       if (nummerus == 0) {
         if (this.entry.slice(-1) == "i") {
-          this.wortstamm = this.entry.slice(0,-1)
-          this.gender = "m"
+          this.gender = "mn"
         } else if (this.entry.slice(-2) == "ae") {
           this.wortstamm = this.entry.slice(0, -2)
           this.gender = "f"
-        } else if (this.entry.slice(-1) == "a") {
-          this.wortstamm = this.entry.slice(0, -1)
-          this.gender = "n"
-        }
+        } 
       } else {
         if (this.entry.slice(-4) != "orum") {
           this.wortstamm = "";
@@ -108,4 +104,14 @@ export class TableComponent implements OnInit {
       }
     }
   }  
+  genderLong(gendercode: String): String {
+    if (gendercode == "m") {
+      return "maskulinum"
+    } else if (gendercode == "f") {
+      return "femininum"
+    } else if (gendercode == "n") {
+      return "neutrum"
+    }
+    return ""
+  } 
 }

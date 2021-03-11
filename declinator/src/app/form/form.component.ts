@@ -107,6 +107,7 @@ export class FormComponent implements OnInit {
   }
 
   get canWrite(): boolean {
-    return this.kasus == "nom" || this.kasus == "akk"
+    return true
+   // return this.kasus == "nom" || this.kasus == "akk"
   }
 }
