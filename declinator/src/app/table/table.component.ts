@@ -10,6 +10,7 @@ export class TableComponent implements OnInit {
   constructor() { }
   entry: String | undefined;
   wortstamm: String | undefined;
+  gender: String | undefined
 
   get onKeyFunction() {
     return this.onKey.bind(this)
@@ -22,10 +23,15 @@ export class TableComponent implements OnInit {
     this.entry = (event.target as HTMLInputElement).value;
     if (kasus=="nom") {
       if (nummerus == 0) {
-        if (this.entry.slice(-2) != "us") {
-          this.wortstamm = "";
-        } else {
+        if (this.entry.slice(-2) == "us") {
           this.wortstamm = this.entry.slice(0,-2)
+          this.gender = "m"
+        } else if (this.entry.slice(-1) == "a") {
+          this.wortstamm = this.entry.slice(0, -1)
+          this.gender = "f"
+        } else if (this.entry.slice(-2) == "um") {
+          this.wortstamm = this.entry.slice(0, -2)
+          this.gender = "n"
         }
       } else {
         if (this.entry.slice(-1) != "i") {

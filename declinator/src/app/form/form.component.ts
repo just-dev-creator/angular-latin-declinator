@@ -15,6 +15,8 @@ export class FormComponent implements OnInit {
   kasus: String | undefined
   @Input()
   nummerus: Byte | undefined
+  @Input()
+  gender : String | undefined
   constructor() { }
 
   ngOnInit(): void {
@@ -24,9 +26,21 @@ export class FormComponent implements OnInit {
     if (!this.wortstamm) return ""
     else if (this.kasus == "nom") {
       if (this.nummerus == 0) {
-        return this.wortstamm + "us"
+        if (this.gender == "m") {
+          return this.wortstamm + "us"
+        } else if (this.gender == "f") {
+          return this.wortstamm + "a"
+        } else if (this.gender == "n") {
+          return this.wortstamm + "um"
+        }
       } else {
-        return this.wortstamm + "i"
+        if (this.gender == "m") {
+          return this.wortstamm + "i"
+        } else if (this.gender == "f") {
+          return this.wortstamm + "ae"
+        } else if (this.gender == "n") {
+          return this.wortstamm + "a"
+        }
       }
     } else if (this.kasus == "gen") {
       if (this.nummerus == 0) {
