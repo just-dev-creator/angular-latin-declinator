@@ -34,18 +34,28 @@ export class TableComponent implements OnInit {
           this.gender = "n"
         }
       } else {
-        if (this.entry.slice(-1) != "i") {
-          this.wortstamm = undefined
-        } else {
+        if (this.entry.slice(-1) == "i") {
           this.wortstamm = this.entry.slice(0,-1)
+          this.gender = "m"
+        } else if (this.entry.slice(-2) == "ae") {
+          this.wortstamm = this.entry.slice(0, -2)
+          this.gender = "f"
+        } else if (this.entry.slice(-1) == "a") {
+          this.wortstamm = this.entry.slice(0, -1)
+          this.gender = "n"
         }
       }
     } else if (kasus=="gen") {
       if (nummerus == 0) {
-        if (this.entry.slice(-1) != "i") {
-          this.wortstamm = "";
-        } else {
+        if (this.entry.slice(-1) == "i") {
           this.wortstamm = this.entry.slice(0,-1)
+          this.gender = "m"
+        } else if (this.entry.slice(-2) == "ae") {
+          this.wortstamm = this.entry.slice(0, -2)
+          this.gender = "f"
+        } else if (this.entry.slice(-1) == "a") {
+          this.wortstamm = this.entry.slice(0, -1)
+          this.gender = "n"
         }
       } else {
         if (this.entry.slice(-4) != "orum") {
