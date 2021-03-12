@@ -57,19 +57,23 @@ export class TableComponent implements OnInit {
           this.gender = "f"
         } 
       } else {
-        if (this.entry.slice(-4) != "orum") {
-          this.wortstamm = "";
-        } else {
-          this.wortstamm = this.entry.slice(0,-4)
-        }
+        if (this.entry.slice(-4) == "orum") {
+          this.gender = "mn"
+          this.wortstamm = this.entry.slice(0, -4)
+        } else if (this.entry.slice(-4) == "arum") {
+          this.wortstamm = this.entry.slice(0, -4)
+          this.gender = "f"
+        } 
       }
     } else if (kasus=="dat") {
       if (nummerus == 0) {
-        if (this.entry.slice(-1) != "o") {
-          this.wortstamm = "";
-        } else {
-          this.wortstamm = this.entry.slice(0,-1)
-        }
+        if (this.entry.slice(-1) == "o") {
+          this.gender = "mn"
+          this.wortstamm = this.entry.slice(0, -1)
+        } else if (this.entry.slice(-2) == "ae") {
+          this.wortstamm = this.entry.slice(0, -2)
+          this.gender = "f"
+        } 
       } else {
         if (this.entry.slice(-2) == "is") {
           this.wortstamm = this.entry.slice(0, -2)
@@ -78,30 +82,38 @@ export class TableComponent implements OnInit {
       }
     } else if (kasus=="akk") {
       if (nummerus == 0) {
-        if (this.entry.slice(-2) != "um") {
-          this.wortstamm = "";
-        } else {
-          this.wortstamm = this.entry.slice(0,-2)
+        if (this.entry.slice(-2) == "um") {
+          this.wortstamm = this.entry.slice(0, -2)
+          this.gender = "mn"
+        } else if (this.entry.slice(-2) == "am") {
+          this.wortstamm = this.entry.slice(0, -2)
+          this.gender = "f"
         }
       } else {
-        if (this.entry.slice(-2) != "os") {
-          this.wortstamm = "";
-        } else {
-          this.wortstamm = this.entry.slice(0,-2)
+        if (this.entry.slice(-2) == "os") {
+          this.wortstamm = this.entry.slice(0, -2)
+          this.gender = "m"
+        } else if (this.entry.slice(-2) == "as") {
+          this.wortstamm = this.entry.slice(0, -2)
+          this.gender = "f"
+        } else if (this.entry.slice(-1) == "a") {
+          this.wortstamm = this.entry.slice(0, -1)
+          this.gender = "n"
         }
       }
     } else if (kasus == "abl") {
       if (nummerus == 0) {
-        if (this.entry.slice(-1) != "o") {
-          this.wortstamm = "";
-        } else {
-          this.wortstamm = this.entry.slice(0,-1)
+        if (this.entry.slice(-1) == "o") {
+          this.wortstamm = this.entry.slice(0, -1);
+          this.gender = "mn"
+        } else if (this.entry.slice(-1) == "a") {
+          this.wortstamm = this.entry.slice(0, -1)
+          this.gender = "f"
         }
       } else {
-        if (this.entry.slice(-2) != "is") {
-          this.wortstamm = "";
-        } else {
+        if (this.entry.slice(-2) == "is") {
           this.wortstamm = this.entry.slice(0,-2)
+          this.gender = "mnf"
         }
       }
     }
