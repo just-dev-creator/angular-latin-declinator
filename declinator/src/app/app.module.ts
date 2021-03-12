@@ -9,6 +9,7 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { ImpressumComponent } from './impressum/impressum.component';
 import { TableComponent } from './table/table.component';
 import { FormComponent } from './form/form.component';
+import { FormsModule, NgModel, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,8 @@ import { FormComponent } from './form/form.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
     NbThemeModule.forRoot({ name: 'dark' }),
     NbLayoutModule,
     NbEvaIconsModule,

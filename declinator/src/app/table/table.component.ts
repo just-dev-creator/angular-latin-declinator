@@ -1,5 +1,6 @@
 import { Byte } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
+import { NgModel } from '@angular/forms'
 
 @Component({
   selector: 'app-table',
@@ -11,6 +12,7 @@ export class TableComponent implements OnInit {
   entry: String | undefined;
   wortstamm: String | undefined;
   gender: String | undefined;
+  selectedOption: String | undefined;
 
   get onKeyFunction() {
     return this.onKey.bind(this)
@@ -49,6 +51,7 @@ export class TableComponent implements OnInit {
       if (nummerus == 0) {
         if (this.entry.slice(-1) == "i") {
           this.gender = "mn"
+          this.wortstamm = this.entry.slice(0, -1)
         } else if (this.entry.slice(-2) == "ae") {
           this.wortstamm = this.entry.slice(0, -2)
           this.gender = "f"
@@ -68,10 +71,9 @@ export class TableComponent implements OnInit {
           this.wortstamm = this.entry.slice(0,-1)
         }
       } else {
-        if (this.entry.slice(-2) != "is") {
-          this.wortstamm = "";
-        } else {
-          this.wortstamm = this.entry.slice(0,-2)
+        if (this.entry.slice(-2) == "is") {
+          this.wortstamm = this.entry.slice(0, -2)
+          this.gender = "mfn"
         }
       }
     } else if (kasus=="akk") {

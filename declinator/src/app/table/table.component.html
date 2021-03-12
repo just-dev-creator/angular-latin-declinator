@@ -1,15 +1,10 @@
-<button *ngIf="wortstamm" style="margin-bottom: 2%;" nbButton status="danger" (click)="wortstamm = undefined">Setze zurück</button>
-<nb-select *ngIf="gender && gender.length >= 2">
+<button *ngIf="wortstamm && gender" style="margin-bottom: 2%;" nbButton status="danger" (click)="wortstamm = undefined; gender = undefined;">Setze zurück</button>
+<nb-select *ngIf="gender && gender.length >= 2" [(ngModel)]="gender">
     <nb-option *ngFor="let i of gender.split('')" value="{{ i }}">
         {{genderLong(i)}}
     </nb-option>
 </nb-select>
-<!---
-<div *ngIf="gender">
-    <p *ngFor="let i in [1, 2, 3, 4, 5]">{{ i }}</p>
-</div>
--->
-<table style="width:100%">
+<table *ngIf="!gender || gender && gender.length==1" style="width:100%">
     <tr>
         <th>Kasus</th>
         <th>Singular</th>

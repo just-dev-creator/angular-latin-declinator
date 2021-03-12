@@ -44,27 +44,75 @@ export class FormComponent implements OnInit {
       }
     } else if (this.kasus == "gen") {
       if (this.nummerus == 0) {
-        return this.wortstamm + "i"
+        if (this.gender == "m") {
+          return this.wortstamm + "i"
+        } else if (this.gender == "f") {
+          return this.wortstamm + "ae"
+        } else if (this.gender == "n") {
+          return this.wortstamm + "i"
+        }
       } else {
-        return this.wortstamm + "orum"
+        if (this.gender == "m") {
+          return this.wortstamm + "orum"
+        } else if (this.gender == "f") {
+          return this.wortstamm + "arum"
+        } else if (this.gender == "n") {
+          return this.wortstamm + "orum"
+        }
       }
     } else if (this.kasus == "dat") {
       if (this.nummerus == 0) {
-        return this.wortstamm + "o"
+        if (this.gender == "m") {
+          return this.wortstamm + "o"
+        } else if (this.gender == "f") {
+          return this.wortstamm + "ae"
+        } else if (this.gender == "n") {
+          return this.wortstamm + "o"
+        }
       } else {
-        return this.wortstamm + "is"
+        if (this.gender == "m") {
+          return this.wortstamm + "is"
+        } else if (this.gender == "f") {
+          return this.wortstamm + "is"
+        } else if (this.gender == "n") {
+          return this.wortstamm + "is"
+        }
       }
     } else if (this.kasus == "akk") {
       if (this.nummerus == 0) {
-        return this.wortstamm + "um"
+        if (this.gender == "m") {
+          return this.wortstamm + "um"
+        } else if (this.gender == "f") {
+          return this.wortstamm + "am"
+        } else if (this.gender == "n") {
+          return this.wortstamm + "um"
+        }
       } else {
-        return this.wortstamm + "os"
+        if (this.gender == "m") {
+          return this.wortstamm + "os"
+        } else if (this.gender == "f") {
+          return this.wortstamm + "as"
+        } else if (this.gender == "n") {
+          return this.wortstamm + "a"
+        }
       }
     } else if (this.kasus == "abl") {
       if (this.nummerus == 0) {
-        return this.wortstamm + "o"
+        if (this.gender == "m") {
+          return this.wortstamm + "o"
+        } else if (this.gender == "f") {
+          return this.wortstamm + "a"
+        } else if (this.gender == "n") {
+          return this.wortstamm + "o"
+        }
       } else {
-        return this.wortstamm + "is"
+        if (this.gender == "m") {
+          return this.wortstamm + "is"
+        } else if (this.gender == "f") {
+          return this.wortstamm + "is"
+        } else if (this.gender == "n") {
+          return this.wortstamm + "is"
+        }
       }
     }
     return ""
