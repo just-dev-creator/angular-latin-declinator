@@ -3,7 +3,7 @@
 This project is a tool for people who need to decline latin words in the o/a declination class. (3. declination coming soon!).
 
 ## Live preview
-You can visit a life preview on [this site](latin-declinator.web.app/). To decline a word, you just need to fill in the word in the table.
+You can visit a life preview on [this site](https://latin-declinator.web.app/). To decline a word, you just need to fill in the word in the table.
 
 ## Download and install
 ```bash
