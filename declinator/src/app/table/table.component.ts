@@ -1,5 +1,5 @@
 import { Byte } from '@angular/compiler/src/util';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { NgModel } from '@angular/forms'
 
 @Component({
@@ -12,17 +12,42 @@ export class TableComponent implements OnInit {
   entry: String | undefined;
   wortstamm: String | undefined;
   gender: String | undefined;
-  selectedOption: String | undefined;
+  autoCalc: boolean = true
+  calcEvent : EventEmitter<Function> = new EventEmitter()
 
   get onKeyFunction() {
     return this.onKey.bind(this)
   }
 
+  get calculateFunction() {
+    return this.calculate.bind(this)
+  }
+
   ngOnInit(): void {
+    console.log("=====================================================================================")
+    console.log("Du bist ja ein richtiger HACKERMANS und hast die Konsole gefunden!")
+    console.log("=====================================================================================")
   }
 
   onKey(event: KeyboardEvent, kasus: String, nummerus: Byte) {
+    if (!this.autoCalc) return;
     this.entry = (event.target as HTMLInputElement).value;
+    this.calculate(this.entry, kasus, nummerus)
+    
+  }  
+  genderLong(gendercode: String): String {
+    if (gendercode == "m") {
+      return "maskulinum"
+    } else if (gendercode == "f") {
+      return "femininum"
+    } else if (gendercode == "n") {
+      return "neutrum"
+    }
+    return ""
+  } 
+
+  calculate(entry: String, kasus: String, nummerus: Byte) {
+    this.entry = entry
     if (kasus=="nom") {
       if (nummerus == 0) {
         if (this.entry.slice(-2) == "us") {
@@ -117,15 +142,5 @@ export class TableComponent implements OnInit {
         }
       }
     }
-  }  
-  genderLong(gendercode: String): String {
-    if (gendercode == "m") {
-      return "maskulinum"
-    } else if (gendercode == "f") {
-      return "femininum"
-    } else if (gendercode == "n") {
-      return "neutrum"
-    }
-    return ""
-  } 
+  }
 }

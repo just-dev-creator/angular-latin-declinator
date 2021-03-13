@@ -1,3 +1,3 @@
 <input nbInput *ngIf="wortstamm && gender && gender.length==1" readonly value="{{getVal}}">
-<input nbInput status="info" *ngIf="!wortstamm && canWrite && !gender" (keyup)="onKey($event, this.kasus, this.nummerus)" placeholder="{{ placeholder }}">
+<input [(ngModel)]="entry" nbInput status="info" *ngIf="!wortstamm && canWrite && !gender" (keyup)="onKey($event, this.kasus, this.nummerus)" placeholder="{{ placeholder }}">
 <input readonly nbInput status="warning" *ngIf="!wortstamm && !canWrite && !gender" placeholder="{{ placeholder }}">

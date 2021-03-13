@@ -1,4 +1,5 @@
 <button *ngIf="wortstamm && gender" style="margin-bottom: 2%;" nbButton status="danger" (click)="wortstamm = undefined; gender = undefined;">Setze zurück</button>
+<button *ngIf="!autoCalc && !gender && !wortstamm" style="margin-bottom: 2%;" nbButton status="info" (click)="calcEvent.emit(calculateFunction)">Berechne</button>
 <nb-select *ngIf="gender && gender.length >= 2" [(ngModel)]="gender">
     <nb-option *ngFor="let i of gender.split('')" value="{{ i }}">
         {{genderLong(i)}}
@@ -13,46 +14,48 @@
     <tr>
         <th>Nominativ</th>
         <td>
-            <app-form [wortstamm]="wortstamm" [onKey]="onKeyFunction" [kasus]="'nom'" [nummerus]="0" [gender]="gender"></app-form>
+            <app-form [wortstamm]="wortstamm" [onKey]="onKeyFunction" [kasus]="'nom'" [nummerus]="0" [gender]="gender" [calculateValues]="calcEvent"></app-form>
         </td>
         <td>
-            <app-form [wortstamm]="wortstamm" [onKey]="onKeyFunction" [kasus]="'nom'" [nummerus]="1" [gender]="gender"></app-form>
+            <app-form [wortstamm]="wortstamm" [onKey]="onKeyFunction" [kasus]="'nom'" [nummerus]="1" [gender]="gender" [calculateValues]="calcEvent"></app-form>
         </td>
     </tr>
     <tr>
         <th>Genetiv</th>
         <td>
-            <app-form [wortstamm]="wortstamm" [onKey]="onKeyFunction" [kasus]="'gen'" [nummerus]="0" [gender]="gender"></app-form>
+            <app-form [wortstamm]="wortstamm" [onKey]="onKeyFunction" [kasus]="'gen'" [nummerus]="0" [gender]="gender" [calculateValues]="calcEvent"></app-form>
         </td>
         <td>
-            <app-form [wortstamm]="wortstamm" [onKey]="onKeyFunction" [kasus]="'gen'" [nummerus]="1" [gender]="gender"></app-form>
+            <app-form [wortstamm]="wortstamm" [onKey]="onKeyFunction" [kasus]="'gen'" [nummerus]="1" [gender]="gender" [calculateValues]="calcEvent"></app-form>
         </td>
     </tr>
     <tr>
         <th>Dativ</th>
         <td>
-            <app-form [wortstamm]="wortstamm" [onKey]="onKeyFunction" [kasus]="'dat'" [nummerus]="0" [gender]="gender"></app-form>
+            <app-form [wortstamm]="wortstamm" [onKey]="onKeyFunction" [kasus]="'dat'" [nummerus]="0" [gender]="gender" [calculateValues]="calcEvent"></app-form>
         </td>
         <td>
-            <app-form [wortstamm]="wortstamm" [onKey]="onKeyFunction" [kasus]="'dat'" [nummerus]="1" [gender]="gender"></app-form>
+            <app-form [wortstamm]="wortstamm" [onKey]="onKeyFunction" [kasus]="'dat'" [nummerus]="1" [gender]="gender" [calculateValues]="calcEvent"></app-form>
         </td>
     </tr>
     <tr>
         <th>Akkusativ</th>
         <td>
-            <app-form [wortstamm]="wortstamm" [onKey]="onKeyFunction" [kasus]="'akk'" [nummerus]="0" [gender]="gender"></app-form>
+            <app-form [wortstamm]="wortstamm" [onKey]="onKeyFunction" [kasus]="'akk'" [nummerus]="0" [gender]="gender" [calculateValues]="calcEvent"></app-form>
         </td>
         <td>
-            <app-form [wortstamm]="wortstamm" [onKey]="onKeyFunction" [kasus]="'akk'" [nummerus]="1" [gender]="gender"></app-form>
+            <app-form [wortstamm]="wortstamm" [onKey]="onKeyFunction" [kasus]="'akk'" [nummerus]="1" [gender]="gender" [calculateValues]="calcEvent"></app-form>
         </td>
     </tr>
     <tr>
         <th>Ablativ</th>
         <td>
-            <app-form [wortstamm]="wortstamm" [onKey]="onKeyFunction" [kasus]="'abl'" [nummerus]="0" [gender]="gender"></app-form>
+            <app-form [wortstamm]="wortstamm" [onKey]="onKeyFunction" [kasus]="'abl'" [nummerus]="0" [gender]="gender" [calculateValues]="calcEvent"></app-form>
         </td>
         <td>
-            <app-form [wortstamm]="wortstamm" [onKey]="onKeyFunction" [kasus]="'abl'" [nummerus]="1" [gender]="gender"></app-form>
+            <app-form [wortstamm]="wortstamm" [onKey]="onKeyFunction" [kasus]="'abl'" [nummerus]="1" [gender]="gender" [calculateValues]="calcEvent"></app-form>
         </td>
     </tr>
   </table> 
+
+  <nb-toggle labelPosition="start" style="margin-top: 2%;" [(ngModel)]="autoCalc">Automatische Berechnung</nb-toggle>

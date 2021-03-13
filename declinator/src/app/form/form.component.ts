@@ -1,5 +1,6 @@
 import { Byte } from '@angular/compiler/src/util';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, EventEmitter } from '@angular/core';
+import { NgModel } from '@angular/forms'
 
 @Component({
   selector: 'app-form',
@@ -12,14 +13,22 @@ export class FormComponent implements OnInit {
   @Input() 
   onKey!: Function;
   @Input()
-  kasus: String | undefined
+  kasus: String | undefined;
   @Input()
-  nummerus: Byte | undefined
+  nummerus: Byte | undefined;
   @Input()
-  gender : String | undefined
-  constructor() { }
+  gender : String | undefined;
+  @Input()
+  calculateValues!: EventEmitter<Function>;
+
+  entry: String | undefined
 
   ngOnInit(): void {
+    this.calculateValues.subscribe((calculateFunction: Function) => {
+      if (this.entry != undefined) {
+        calculateFunction(this.entry, this.kasus, this.nummerus)
+      }
+    })
   }
 
   get getVal() : String {
