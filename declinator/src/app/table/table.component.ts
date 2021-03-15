@@ -13,6 +13,7 @@ export class TableComponent implements OnInit {
   wortstamm: String | undefined;
   gender: String | undefined;
   autoCalc: boolean = true
+  easterEggTimes: any
   calcEvent : EventEmitter<Function> = new EventEmitter()
 
   get onKeyFunction() {
@@ -141,6 +142,15 @@ export class TableComponent implements OnInit {
           this.gender = "mnf"
         }
       }
+    }
+  }
+
+  changeEasterEgg() {
+    console.log("change | " + this.easterEggTimes)
+    if (!this.easterEggTimes) {
+      this.easterEggTimes = 1
+    } else {
+      this.easterEggTimes++;
     }
   }
 }
