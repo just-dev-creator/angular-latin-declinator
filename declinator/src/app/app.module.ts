@@ -10,13 +10,15 @@ import { ImpressumComponent } from './impressum/impressum.component';
 import { TableComponent } from './table/table.component';
 import { FormComponent } from './form/form.component';
 import { FormsModule, NgModel, ReactiveFormsModule } from '@angular/forms';
+import { ThirdTableComponent } from './third-table/third-table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ImpressumComponent,
     TableComponent,
-    FormComponent
+    FormComponent,
+    ThirdTableComponent
   ],
   imports: [
     BrowserModule,
