@@ -3,81 +3,82 @@ File: table.component.html
 Project: declinator
 Copyright: This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0. If a copy of the MPL was not distributed with this file, You can obtain one at http://mozilla.org/MPL/2.0/.
 -->
+<div>
+    <div *ngIf="easterEggTimes>=15" style="pointer-events: none;">
+        <iframe src="https://archive.org/embed/never-gonna-give-you-up-4-k&autoplay=1" width="640" height="480" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen style></iframe>
+        <h1>NEVER GONNA</h1>
+        <h3>Give you up.</h3>
+        <h3>Let you down.</h3>
+        <h3>Run around.</h3>
+        <h3>Desert you.</h3>
+        <h4>You've been rick-rolled!</h4>
 
-<div *ngIf="easterEggTimes>=15" style="pointer-events: none;">
-    <iframe src="https://archive.org/embed/never-gonna-give-you-up-4-k&autoplay=1" width="640" height="480" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen style></iframe>
-    <h1>NEVER GONNA</h1>
-    <h3>Give you up.</h3>
-    <h3>Let you down.</h3>
-    <h3>Run around.</h3>
-    <h3>Desert you.</h3>
-    <h4>You've been rick-rolled!</h4>
+        <p>No controls on this video. You have no control over this situation.</p>
 
-    <p>No controls on this video. You have no control over this situation.</p>
+        <p style="margin-top: 7%;">unless you exit the page...</p>
+    </div>
 
-    <p style="margin-top: 7%;">unless you exit the page...</p>
+    <div *ngIf="!easterEggTimes || easterEggTimes<15">
+    <button *ngIf="wortstamm && gender" style="margin-bottom: 2%;" nbButton status="danger" (click)="wortstamm = undefined; gender = undefined;">Setze zurück</button>
+    <button *ngIf="!autoCalc && !gender && !wortstamm" style="margin-bottom: 2%;" nbButton status="info" (click)="calcEvent.emit(calculateFunction)">Berechne</button>
+    <nb-select *ngIf="gender && gender.length >= 2" [(ngModel)]="gender">
+        <nb-option *ngFor="let i of gender.split('')" value="{{ i }}">
+            {{genderLong(i)}}
+        </nb-option>
+    </nb-select>
+    <table *ngIf="!gender || gender && gender.length==1" style="width:100%">
+        <tr>
+            <th>Kasus</th>
+            <th>Singular</th>
+            <th>Plural</th>
+        </tr>
+        <tr>
+            <th>Nominativ</th>
+            <td>
+                <app-form [wortstamm]="wortstamm" [onKey]="onKeyFunction" [kasus]="'nom'" [nummerus]="0" [gender]="gender" [calculateValues]="calcEvent"></app-form>
+            </td>
+            <td>
+                <app-form [wortstamm]="wortstamm" [onKey]="onKeyFunction" [kasus]="'nom'" [nummerus]="1" [gender]="gender" [calculateValues]="calcEvent"></app-form>
+            </td>
+        </tr>
+        <tr>
+            <th>Genetiv</th>
+            <td>
+                <app-form [wortstamm]="wortstamm" [onKey]="onKeyFunction" [kasus]="'gen'" [nummerus]="0" [gender]="gender" [calculateValues]="calcEvent"></app-form>
+            </td>
+            <td>
+                <app-form [wortstamm]="wortstamm" [onKey]="onKeyFunction" [kasus]="'gen'" [nummerus]="1" [gender]="gender" [calculateValues]="calcEvent"></app-form>
+            </td>
+        </tr>
+        <tr>
+            <th>Dativ</th>
+            <td>
+                <app-form [wortstamm]="wortstamm" [onKey]="onKeyFunction" [kasus]="'dat'" [nummerus]="0" [gender]="gender" [calculateValues]="calcEvent"></app-form>
+            </td>
+            <td>
+                <app-form [wortstamm]="wortstamm" [onKey]="onKeyFunction" [kasus]="'dat'" [nummerus]="1" [gender]="gender" [calculateValues]="calcEvent"></app-form>
+            </td>
+        </tr>
+        <tr>
+            <th>Akkusativ</th>
+            <td>
+                <app-form [wortstamm]="wortstamm" [onKey]="onKeyFunction" [kasus]="'akk'" [nummerus]="0" [gender]="gender" [calculateValues]="calcEvent"></app-form>
+            </td>
+            <td>
+                <app-form [wortstamm]="wortstamm" [onKey]="onKeyFunction" [kasus]="'akk'" [nummerus]="1" [gender]="gender" [calculateValues]="calcEvent"></app-form>
+            </td>
+        </tr>
+        <tr>
+            <th>Ablativ</th>
+            <td>
+                <app-form [wortstamm]="wortstamm" [onKey]="onKeyFunction" [kasus]="'abl'" [nummerus]="0" [gender]="gender" [calculateValues]="calcEvent"></app-form>
+            </td>
+            <td>
+                <app-form [wortstamm]="wortstamm" [onKey]="onKeyFunction" [kasus]="'abl'" [nummerus]="1" [gender]="gender" [calculateValues]="calcEvent"></app-form>
+            </td>
+        </tr>
+    </table> 
+
+    <nb-toggle (checkedChange)="changeEasterEgg()" labelPosition="start" style="margin-top: 2%;" [(ngModel)]="autoCalc">Automatische Berechnung</nb-toggle>
+    </div>
 </div>
-
-<div *ngIf="!easterEggTimes || easterEggTimes<15">
-<button *ngIf="wortstamm && gender" style="margin-bottom: 2%;" nbButton status="danger" (click)="wortstamm = undefined; gender = undefined;">Setze zurück</button>
-<button *ngIf="!autoCalc && !gender && !wortstamm" style="margin-bottom: 2%;" nbButton status="info" (click)="calcEvent.emit(calculateFunction)">Berechne</button>
-<nb-select *ngIf="gender && gender.length >= 2" [(ngModel)]="gender">
-    <nb-option *ngFor="let i of gender.split('')" value="{{ i }}">
-        {{genderLong(i)}}
-    </nb-option>
-</nb-select>
-<table *ngIf="!gender || gender && gender.length==1" style="width:100%">
-    <tr>
-        <th>Kasus</th>
-        <th>Singular</th>
-        <th>Plural</th>
-    </tr>
-    <tr>
-        <th>Nominativ</th>
-        <td>
-            <app-form [wortstamm]="wortstamm" [onKey]="onKeyFunction" [kasus]="'nom'" [nummerus]="0" [gender]="gender" [calculateValues]="calcEvent"></app-form>
-        </td>
-        <td>
-            <app-form [wortstamm]="wortstamm" [onKey]="onKeyFunction" [kasus]="'nom'" [nummerus]="1" [gender]="gender" [calculateValues]="calcEvent"></app-form>
-        </td>
-    </tr>
-    <tr>
-        <th>Genetiv</th>
-        <td>
-            <app-form [wortstamm]="wortstamm" [onKey]="onKeyFunction" [kasus]="'gen'" [nummerus]="0" [gender]="gender" [calculateValues]="calcEvent"></app-form>
-        </td>
-        <td>
-            <app-form [wortstamm]="wortstamm" [onKey]="onKeyFunction" [kasus]="'gen'" [nummerus]="1" [gender]="gender" [calculateValues]="calcEvent"></app-form>
-        </td>
-    </tr>
-    <tr>
-        <th>Dativ</th>
-        <td>
-            <app-form [wortstamm]="wortstamm" [onKey]="onKeyFunction" [kasus]="'dat'" [nummerus]="0" [gender]="gender" [calculateValues]="calcEvent"></app-form>
-        </td>
-        <td>
-            <app-form [wortstamm]="wortstamm" [onKey]="onKeyFunction" [kasus]="'dat'" [nummerus]="1" [gender]="gender" [calculateValues]="calcEvent"></app-form>
-        </td>
-    </tr>
-    <tr>
-        <th>Akkusativ</th>
-        <td>
-            <app-form [wortstamm]="wortstamm" [onKey]="onKeyFunction" [kasus]="'akk'" [nummerus]="0" [gender]="gender" [calculateValues]="calcEvent"></app-form>
-        </td>
-        <td>
-            <app-form [wortstamm]="wortstamm" [onKey]="onKeyFunction" [kasus]="'akk'" [nummerus]="1" [gender]="gender" [calculateValues]="calcEvent"></app-form>
-        </td>
-    </tr>
-    <tr>
-        <th>Ablativ</th>
-        <td>
-            <app-form [wortstamm]="wortstamm" [onKey]="onKeyFunction" [kasus]="'abl'" [nummerus]="0" [gender]="gender" [calculateValues]="calcEvent"></app-form>
-        </td>
-        <td>
-            <app-form [wortstamm]="wortstamm" [onKey]="onKeyFunction" [kasus]="'abl'" [nummerus]="1" [gender]="gender" [calculateValues]="calcEvent"></app-form>
-        </td>
-    </tr>
-  </table> 
-
-  <nb-toggle (checkedChange)="changeEasterEgg()" labelPosition="start" style="margin-top: 2%;" [(ngModel)]="autoCalc">Automatische Berechnung</nb-toggle>
-  </div>
