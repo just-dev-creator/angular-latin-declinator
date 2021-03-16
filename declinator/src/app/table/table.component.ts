@@ -11,7 +11,7 @@ import { NgModel } from '@angular/forms'
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
-  styleUrls: ['./table.component.scss']
+  styleUrls: ['./table.component.scss'],
 })
 export class TableComponent implements OnInit {
   constructor() { }
@@ -20,6 +20,7 @@ export class TableComponent implements OnInit {
   gender: String | undefined;
   autoCalc: boolean = true
   easterEggTimes: any
+  thirddeclination: boolean | undefined
   calcEvent : EventEmitter<Function> = new EventEmitter()
 
   get onKeyFunction() {

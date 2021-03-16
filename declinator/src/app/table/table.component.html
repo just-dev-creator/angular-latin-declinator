@@ -3,7 +3,12 @@ File: table.component.html
 Project: declinator
 Copyright: This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0. If a copy of the MPL was not distributed with this file, You can obtain one at http://mozilla.org/MPL/2.0/.
 -->
-<div>
+<div *ngIf="thirddeclination">
+    <app-third-table>
+
+    </app-third-table>
+</div>
+<div *ngIf="!thirddeclination">
     <div *ngIf="easterEggTimes>=15" style="pointer-events: none;">
         <iframe src="https://archive.org/embed/never-gonna-give-you-up-4-k&autoplay=1" width="640" height="480" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen style></iframe>
         <h1>NEVER GONNA</h1>

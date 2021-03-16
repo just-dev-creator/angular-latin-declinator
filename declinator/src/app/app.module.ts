@@ -33,16 +33,16 @@ import { ThirdTableComponent } from './third-table/third-table.component';
     FormsModule,
     ReactiveFormsModule,
     NbThemeModule.forRoot({ name: 'dark' }),
+    NbSidebarModule.forRoot(),
     NbLayoutModule,
     NbEvaIconsModule,
-    NbSidebarModule,
     NbButtonModule,
     NbInputModule,
     NbSelectModule,
     NbOptionModule,
     NbToggleModule,
     NbIconModule,
-    NbEvaIconsModule
+    NbEvaIconsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
