@@ -1,3 +1,9 @@
+<!--
+File: form.component.html
+Project: declinator
+Copyright: This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0. If a copy of the MPL was not distributed with this file, You can obtain one at http://mozilla.org/MPL/2.0/.
+-->
+
 <input nbInput *ngIf="wortstamm && gender && gender.length==1" readonly value="{{getVal}}">
 <input [(ngModel)]="entry" nbInput status="info" *ngIf="!wortstamm && canWrite && !gender" (keyup)="onKey($event, this.kasus, this.nummerus)" placeholder="{{ placeholder }}">
 <input readonly nbInput status="warning" *ngIf="!wortstamm && !canWrite && !gender" placeholder="{{ placeholder }}">
