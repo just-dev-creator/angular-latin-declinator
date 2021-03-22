@@ -26,7 +26,7 @@ jobs:
       - name: Deploy to firebase
         uses: w9jds/firebase-action@master
         with:
-          args: deploy --only hosting
+          args: deploy --project latin-declinator --message \"${{ github.event.head_commit.message }}\" --only hosting
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
           PROJECT_PATH: ./declinator
