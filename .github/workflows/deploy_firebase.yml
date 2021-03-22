@@ -10,6 +10,8 @@ on:
 jobs:
   firebase-deploy:
     runs-on: ubuntu-latest
+    env:
+      working-directory: ./declinator
     steps:
       - uses: actions/checkout@master
       - uses: actions/setup-node@master
@@ -17,12 +19,9 @@ jobs:
           node-version: '10.x'
       - name: Install dependencies
         run: npm install
-        working-directory: ./declinator
       - name: Build the angular project
         run: npm run build:prod
-        working-directory: ./declinator
       - name: Deploy to firebase
-        working-directory: ./declinator
         uses: w9jds/firebase-action@master
         with:
           args: deploy --only hosting
