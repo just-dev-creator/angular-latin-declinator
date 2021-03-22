@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "latin-declinator": {
+      "hosting": {
+        "declinator": [
+          "latin-declinator"
+        ]
+      }
+    }
+  }
+}
