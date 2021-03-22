@@ -22,9 +22,9 @@ jobs:
         run: npm run build:prod
         working-directory: ./declinator
       - name: Deploy to firebase
+        working-directory: ./declinator
         uses: w9jds/firebase-action@master
         with:
           args: deploy --only hosting
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-        working-directory: ./declinator
