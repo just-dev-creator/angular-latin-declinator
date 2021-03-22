@@ -27,7 +27,5 @@ publish.sh
 
 declinator/.firebaserc
 
-declinator/firebase.json
-
 declinator/.firebase/
 
