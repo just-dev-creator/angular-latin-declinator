@@ -1,0 +1,32 @@
+/*
+ * File: deploy_firebase.yml
+ * Project: workflows
+ * Copyright: This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0. If a copy of the MPL was not distributed with this file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ */
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'declinator/**'
+
+jobs:
+  firebase-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@master
+        with:
+          node-version: '10.x'
+      - name: Install dependencies
+        run: npm install
+        working-directory: ./declinator
+      - name: Build the angular project
+        run: npm run build:prod
+        working-directory: ./declinator
+      - name: Deploy to firebase
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only hosting
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+        working-directory: ./declinator
