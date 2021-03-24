@@ -6,7 +6,7 @@
 
 import { Byte } from '@angular/compiler/src/util';
 import { Component, Input, OnInit, EventEmitter } from '@angular/core';
-import { NgModel } from '@angular/forms'
+import { NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-form',
@@ -16,161 +16,161 @@ import { NgModel } from '@angular/forms'
 export class FormComponent implements OnInit {
   @Input()
   wortstamm: String | undefined;
-  @Input() 
+  @Input()
   onKey!: Function;
   @Input()
   kasus: String | undefined;
   @Input()
   nummerus: Byte | undefined;
   @Input()
-  gender : String | undefined;
+  gender: String | undefined;
   @Input()
   calculateValues!: EventEmitter<Function>;
 
-  entry: String | undefined
+  entry: String | undefined;
 
   ngOnInit(): void {
     this.calculateValues.subscribe((calculateFunction: Function) => {
       if (this.entry != undefined) {
-        calculateFunction(this.entry, this.kasus, this.nummerus)
+        calculateFunction(this.entry, this.kasus, this.nummerus);
       }
-    })
+    });
   }
 
-  get getVal() : String {
-    if (!this.wortstamm) return ""
-    else if (this.kasus == "nom") {
+  get getVal(): String {
+    if (!this.wortstamm) {return '';}
+    else if (this.kasus == 'nom') {
       if (this.nummerus == 0) {
-        if (this.gender == "m") {
-          return this.wortstamm + "us"
-        } else if (this.gender == "f") {
-          return this.wortstamm + "a"
-        } else if (this.gender == "n") {
-          return this.wortstamm + "um"
+        if (this.gender == 'm') {
+          return this.wortstamm + 'us';
+        } else if (this.gender == 'f') {
+          return this.wortstamm + 'a';
+        } else if (this.gender == 'n') {
+          return this.wortstamm + 'um';
         }
       } else {
-        if (this.gender == "m") {
-          return this.wortstamm + "i"
-        } else if (this.gender == "f") {
-          return this.wortstamm + "ae"
-        } else if (this.gender == "n") {
-          return this.wortstamm + "a"
+        if (this.gender == 'm') {
+          return this.wortstamm + 'i';
+        } else if (this.gender == 'f') {
+          return this.wortstamm + 'ae';
+        } else if (this.gender == 'n') {
+          return this.wortstamm + 'a';
         }
       }
-    } else if (this.kasus == "gen") {
+    } else if (this.kasus == 'gen') {
       if (this.nummerus == 0) {
-        if (this.gender == "m") {
-          return this.wortstamm + "i"
-        } else if (this.gender == "f") {
-          return this.wortstamm + "ae"
-        } else if (this.gender == "n") {
-          return this.wortstamm + "i"
+        if (this.gender == 'm') {
+          return this.wortstamm + 'i';
+        } else if (this.gender == 'f') {
+          return this.wortstamm + 'ae';
+        } else if (this.gender == 'n') {
+          return this.wortstamm + 'i';
         }
       } else {
-        if (this.gender == "m") {
-          return this.wortstamm + "orum"
-        } else if (this.gender == "f") {
-          return this.wortstamm + "arum"
-        } else if (this.gender == "n") {
-          return this.wortstamm + "orum"
+        if (this.gender == 'm') {
+          return this.wortstamm + 'orum';
+        } else if (this.gender == 'f') {
+          return this.wortstamm + 'arum';
+        } else if (this.gender == 'n') {
+          return this.wortstamm + 'orum';
         }
       }
-    } else if (this.kasus == "dat") {
+    } else if (this.kasus == 'dat') {
       if (this.nummerus == 0) {
-        if (this.gender == "m") {
-          return this.wortstamm + "o"
-        } else if (this.gender == "f") {
-          return this.wortstamm + "ae"
-        } else if (this.gender == "n") {
-          return this.wortstamm + "o"
+        if (this.gender == 'm') {
+          return this.wortstamm + 'o';
+        } else if (this.gender == 'f') {
+          return this.wortstamm + 'ae';
+        } else if (this.gender == 'n') {
+          return this.wortstamm + 'o';
         }
       } else {
-        if (this.gender == "m") {
-          return this.wortstamm + "is"
-        } else if (this.gender == "f") {
-          return this.wortstamm + "is"
-        } else if (this.gender == "n") {
-          return this.wortstamm + "is"
+        if (this.gender == 'm') {
+          return this.wortstamm + 'is';
+        } else if (this.gender == 'f') {
+          return this.wortstamm + 'is';
+        } else if (this.gender == 'n') {
+          return this.wortstamm + 'is';
         }
       }
-    } else if (this.kasus == "akk") {
+    } else if (this.kasus == 'akk') {
       if (this.nummerus == 0) {
-        if (this.gender == "m") {
-          return this.wortstamm + "um"
-        } else if (this.gender == "f") {
-          return this.wortstamm + "am"
-        } else if (this.gender == "n") {
-          return this.wortstamm + "um"
+        if (this.gender == 'm') {
+          return this.wortstamm + 'um';
+        } else if (this.gender == 'f') {
+          return this.wortstamm + 'am';
+        } else if (this.gender == 'n') {
+          return this.wortstamm + 'um';
         }
       } else {
-        if (this.gender == "m") {
-          return this.wortstamm + "os"
-        } else if (this.gender == "f") {
-          return this.wortstamm + "as"
-        } else if (this.gender == "n") {
-          return this.wortstamm + "a"
+        if (this.gender == 'm') {
+          return this.wortstamm + 'os';
+        } else if (this.gender == 'f') {
+          return this.wortstamm + 'as';
+        } else if (this.gender == 'n') {
+          return this.wortstamm + 'a';
         }
       }
-    } else if (this.kasus == "abl") {
+    } else if (this.kasus == 'abl') {
       if (this.nummerus == 0) {
-        if (this.gender == "m") {
-          return this.wortstamm + "o"
-        } else if (this.gender == "f") {
-          return this.wortstamm + "a"
-        } else if (this.gender == "n") {
-          return this.wortstamm + "o"
+        if (this.gender == 'm') {
+          return this.wortstamm + 'o';
+        } else if (this.gender == 'f') {
+          return this.wortstamm + 'a';
+        } else if (this.gender == 'n') {
+          return this.wortstamm + 'o';
         }
       } else {
-        if (this.gender == "m") {
-          return this.wortstamm + "is"
-        } else if (this.gender == "f") {
-          return this.wortstamm + "is"
-        } else if (this.gender == "n") {
-          return this.wortstamm + "is"
+        if (this.gender == 'm') {
+          return this.wortstamm + 'is';
+        } else if (this.gender == 'f') {
+          return this.wortstamm + 'is';
+        } else if (this.gender == 'n') {
+          return this.wortstamm + 'is';
         }
       }
     }
-    return ""
+    return '';
   }
 
   get placeholder(): String {
-    if (this.wortstamm) return ""
-    else if (this.kasus == "nom") {
+    if (this.wortstamm) {return '';}
+    else if (this.kasus == 'nom') {
       if (this.nummerus == 0) {
-        return "servus"
+        return 'servus';
       } else {
-        return "servi"
+        return 'servi';
       }
-    } else if (this.kasus == "gen") {
+    } else if (this.kasus == 'gen') {
       if (this.nummerus == 0) {
-        return "servi"
+        return 'servi';
       } else {
-        return "servorum"
+        return 'servorum';
       }
-    } else if (this.kasus == "dat") {
+    } else if (this.kasus == 'dat') {
       if (this.nummerus == 0) {
-        return "servo"
+        return 'servo';
       } else {
-        return "servis"
+        return 'servis';
       }
-    } else if (this.kasus == "akk") {
+    } else if (this.kasus == 'akk') {
       if (this.nummerus == 0) {
-        return "servum"
+        return 'servum';
       } else {
-        return "servos"
+        return 'servos';
       }
-    } else if (this.kasus == "abl") {
+    } else if (this.kasus == 'abl') {
       if (this.nummerus == 0) {
-        return "servo"
+        return 'servo';
       } else {
-        return "servis"
+        return 'servis';
       }
     }
-    return ""
+    return '';
   }
 
   get canWrite(): boolean {
-    return true
+    return true;
    // return this.kasus == "nom" || this.kasus == "akk"
   }
 }

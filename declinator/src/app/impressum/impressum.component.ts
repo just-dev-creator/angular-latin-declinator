@@ -12,18 +12,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./impressum.component.scss']
 })
 export class ImpressumComponent implements OnInit {
-  impressumActivated: boolean | undefined
-  dataActivated: boolean | undefined
+  impressumActivated: boolean | undefined;
+  dataActivated: boolean | undefined;
   constructor() { }
 
   ngOnInit(): void {
   }
 
   toggleImpressum() {
-    this.impressumActivated = !this.impressumActivated
+    this.impressumActivated = !this.impressumActivated;
   }
-  
+
   toggleData() {
-    this.dataActivated = !this.dataActivated
+    this.dataActivated = !this.dataActivated;
   }
 }
