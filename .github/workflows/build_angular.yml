@@ -29,9 +29,3 @@ jobs:
     - name: Build
       run: npm run build -- --prod
       working-directory: ./declinator
-    - name: Test
-      run: npm test -- --configuration=ci
-      working-directory: ./declinator
-    - name: E2E
-      run: npm run e2e -- --configuration=ci
-      working-directory: ./declinator
