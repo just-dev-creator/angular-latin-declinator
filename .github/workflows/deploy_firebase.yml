@@ -5,8 +5,6 @@ name: Deploy to firebase
 on:
   push:
     branches: [master]
-#    paths:
-#      - 'declinator/**'
 
 jobs:
   firebase-deploy:
