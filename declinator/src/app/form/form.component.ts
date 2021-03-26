@@ -69,6 +69,8 @@ export class FormComponent implements OnInit {
           return this.wortstamm + 'ae';
         } else if (this.gender === 'n') {
           return this.wortstamm + 'i';
+        } else if (this.gender === '3') {
+          return this.wortstamm + 'is';
         }
       } else {
         if (this.gender === 'm') {
@@ -77,6 +79,8 @@ export class FormComponent implements OnInit {
           return this.wortstamm + 'arum';
         } else if (this.gender === 'n') {
           return this.wortstamm + 'orum';
+        } else if (this.gender === '3') {
+          return this.wortstamm + 'um';
         }
       }
     } else if (this.kasus === 'dat') {
