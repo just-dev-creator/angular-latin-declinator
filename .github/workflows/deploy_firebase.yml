@@ -20,7 +20,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Build the angular project
-        run: npm run build
+        run: npm run build --prod
       - name: Deploy to firebase
         uses: w9jds/firebase-action@master
         with:
