@@ -20,7 +20,7 @@ export class TableComponent implements OnInit {
   gender: string | undefined;
   autoCalc = true;
   easterEggTimes: any;
-  thirddeclination: boolean | undefined;
+//  thirddeclination = false;
   // eslint-disable-next-line @typescript-eslint/ban-types
   calcEvent: EventEmitter<Function> = new EventEmitter();
   constructor() { }
@@ -79,11 +79,18 @@ export class TableComponent implements OnInit {
         } else if (this.entry.slice(-1) === 'a') {
           this.wortstamm = this.entry.slice(0, -1);
           this.gender = 'n';
+        } else if (this.entry.slice(-2) === 'es') {
+          this.wortstamm = this.entry.slice(0, -2);
+          this.gender = '3';
         }
       }
     } else if (kasus === 'gen') {
       if (nummerus === 0) {
-        if (this.entry.slice(-1) === 'i') {
+        if (this.entry.slice(-2) === 'is') {
+          this.gender = '3';
+          this.wortstamm = this.entry.slice(0, -2);
+        }
+        else if (this.entry.slice(-1) === 'i') {
           this.gender = 'mn';
           this.wortstamm = this.entry.slice(0, -1);
         } else if (this.entry.slice(-2) === 'ae') {
@@ -97,6 +104,9 @@ export class TableComponent implements OnInit {
         } else if (this.entry.slice(-4) === 'arum') {
           this.wortstamm = this.entry.slice(0, -4);
           this.gender = 'f';
+        } else if (this.entry.slice(-2) === 'um') {
+          this.wortstamm = this.entry.slice(0, -2);
+          this.gender = '3';
         }
       }
     } else if (kasus === 'dat') {
@@ -107,11 +117,17 @@ export class TableComponent implements OnInit {
         } else if (this.entry.slice(-2) === 'ae') {
           this.wortstamm = this.entry.slice(0, -2);
           this.gender = 'f';
+        } else if (this.entry.slice(-1) === 'i') {
+          this.wortstamm = this.entry.slice(0, -1);
+          this.gender = '3';
         }
       } else {
         if (this.entry.slice(-2) === 'is') {
           this.wortstamm = this.entry.slice(0, -2);
           this.gender = 'mfn';
+        } else if (this.entry.slice(-4) === 'ibus') {
+          this.wortstamm = this.entry.slice(0, -4);
+          this.gender = '3';
         }
       }
     } else if (kasus === 'akk') {
@@ -122,6 +138,9 @@ export class TableComponent implements OnInit {
         } else if (this.entry.slice(-2) === 'am') {
           this.wortstamm = this.entry.slice(0, -2);
           this.gender = 'f';
+        } else if (this.entry.slice(-2) === 'em') {
+          this.wortstamm = this.entry.slice(0, -2);
+          this.gender = '3';
         }
       } else {
         if (this.entry.slice(-2) === 'os') {
@@ -133,6 +152,9 @@ export class TableComponent implements OnInit {
         } else if (this.entry.slice(-1) === 'a') {
           this.wortstamm = this.entry.slice(0, -1);
           this.gender = 'n';
+        } else if (this.entry.slice(-2) === 'es') {
+          this.wortstamm = this.entry.slice(0, -2);
+          this.gender = '3';
         }
       }
     } else if (kasus === 'abl') {
@@ -143,11 +165,17 @@ export class TableComponent implements OnInit {
         } else if (this.entry.slice(-1) === 'a') {
           this.wortstamm = this.entry.slice(0, -1);
           this.gender = 'f';
+        } else if (this.entry.slice(-1) === 'e') {
+          this.wortstamm = this.entry.slice(0, -1);
+          this.gender = '3';
         }
       } else {
         if (this.entry.slice(-2) === 'is') {
           this.wortstamm = this.entry.slice(0,-2);
           this.gender = 'mnf';
+        } else if (this.entry.slice(-4) === 'ibus') {
+          this.wortstamm = this.entry.slice(0, -4);
+          this.gender = '3';
         }
       }
     }

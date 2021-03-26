@@ -59,6 +59,8 @@ export class FormComponent implements OnInit {
           return this.wortstamm + 'ae';
         } else if (this.gender === 'n') {
           return this.wortstamm + 'a';
+        } else if (this.gender === '3') {
+          return this.wortstamm + 'es';
         }
       }
     } else if (this.kasus === 'gen') {
@@ -69,6 +71,8 @@ export class FormComponent implements OnInit {
           return this.wortstamm + 'ae';
         } else if (this.gender === 'n') {
           return this.wortstamm + 'i';
+        } else if (this.gender === '3') {
+          return this.wortstamm + 'is';
         }
       } else {
         if (this.gender === 'm') {
@@ -77,6 +81,8 @@ export class FormComponent implements OnInit {
           return this.wortstamm + 'arum';
         } else if (this.gender === 'n') {
           return this.wortstamm + 'orum';
+        } else if (this.gender === '3') {
+          return this.wortstamm + 'um';
         }
       }
     } else if (this.kasus === 'dat') {
@@ -87,6 +93,8 @@ export class FormComponent implements OnInit {
           return this.wortstamm + 'ae';
         } else if (this.gender === 'n') {
           return this.wortstamm + 'o';
+        } else if (this.gender === '3') {
+          return this.wortstamm + 'i';
         }
       } else {
         if (this.gender === 'm') {
@@ -95,6 +103,8 @@ export class FormComponent implements OnInit {
           return this.wortstamm + 'is';
         } else if (this.gender === 'n') {
           return this.wortstamm + 'is';
+        } else if (this.gender === '3') {
+          return this.wortstamm + 'ibus';
         }
       }
     } else if (this.kasus === 'akk') {
@@ -105,6 +115,8 @@ export class FormComponent implements OnInit {
           return this.wortstamm + 'am';
         } else if (this.gender === 'n') {
           return this.wortstamm + 'um';
+        } else if (this.gender === '3') {
+          return this.wortstamm + 'em';
         }
       } else {
         if (this.gender === 'm') {
@@ -113,6 +125,8 @@ export class FormComponent implements OnInit {
           return this.wortstamm + 'as';
         } else if (this.gender === 'n') {
           return this.wortstamm + 'a';
+        } else if (this.gender === '3') {
+          return this.wortstamm + 'es';
         }
       }
     } else if (this.kasus === 'abl') {
@@ -123,6 +137,8 @@ export class FormComponent implements OnInit {
           return this.wortstamm + 'a';
         } else if (this.gender === 'n') {
           return this.wortstamm + 'o';
+        } else if (this.gender === '3') {
+          return this.wortstamm + 'e';
         }
       } else {
         if (this.gender === 'm') {
@@ -131,6 +147,8 @@ export class FormComponent implements OnInit {
           return this.wortstamm + 'is';
         } else if (this.gender === 'n') {
           return this.wortstamm + 'is';
+        } else if (this.gender === '3') {
+          return this.wortstamm + 'ibus';
         }
       }
     }

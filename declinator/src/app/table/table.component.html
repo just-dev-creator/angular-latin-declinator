@@ -3,24 +3,21 @@ File: table.component.html
 Project: declinator
 Copyright: This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0. If a copy of the MPL was not distributed with this file, You can obtain one at http://mozilla.org/MPL/2.0/.
 -->
-<div *ngIf="thirddeclination">
+<div *ngIf="easterEggTimes>=15" style="pointer-events: none;">
+    <iframe src="https://archive.org/embed/never-gonna-give-you-up-4-k&autoplay=1" width="640" height="480" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen style></iframe>
+    <h1>NEVER GONNA</h1>
+    <h3>Give you up.</h3>
+    <h3>Let you down.</h3>
+    <h3>Run around.</h3>
+    <h3>Desert you.</h3>
+    <h4>You've been rick-rolled!</h4>
+
+    <p>No controls on this video. You have no control over this situation.</p>
+
+    <p style="margin-top: 7%;">unless you exit the page...</p>
 </div>
-<div *ngIf="!thirddeclination">
-    <div *ngIf="easterEggTimes>=15" style="pointer-events: none;">
-        <iframe src="https://archive.org/embed/never-gonna-give-you-up-4-k&autoplay=1" width="640" height="480" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen style></iframe>
-        <h1>NEVER GONNA</h1>
-        <h3>Give you up.</h3>
-        <h3>Let you down.</h3>
-        <h3>Run around.</h3>
-        <h3>Desert you.</h3>
-        <h4>You've been rick-rolled!</h4>
 
-        <p>No controls on this video. You have no control over this situation.</p>
-
-        <p style="margin-top: 7%;">unless you exit the page...</p>
-    </div>
-
-    <div *ngIf="!easterEggTimes || easterEggTimes<15">
+<div *ngIf="!easterEggTimes || easterEggTimes<15">
     <button *ngIf="wortstamm && gender" style="margin-bottom: 2%;" nbButton status="danger" (click)="wortstamm = undefined; gender = undefined;">Setze zurück</button>
     <button *ngIf="!autoCalc && !gender && !wortstamm" style="margin-bottom: 2%;" nbButton status="info" (click)="calcEvent.emit(calculateFunction)">Berechne</button>
     <nb-select *ngIf="gender && gender.length >= 2" [(ngModel)]="gender">
@@ -82,5 +79,5 @@ Copyright: This Source Code Form is subject to the terms of the Mozilla Public L
     </table> 
 
     <nb-toggle (checkedChange)="changeEasterEgg()" labelPosition="start" style="margin-top: 2%;" [(ngModel)]="autoCalc">Automatische Berechnung</nb-toggle>
-    </div>
+<!--    <nb-toggle status="warning" style="margin-left: 2%;" [(ngModel)]="thirddeclination" labelPosition="end">3. Deklination</nb-toggle> -->
 </div>
