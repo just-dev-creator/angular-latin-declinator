@@ -5,8 +5,8 @@ name: Deploy to firebase
 on:
   push:
     branches: [master]
-#    paths:
-#      - 'declinator/**'
+    paths:
+      - 'declinator/**'
 
 jobs:
   firebase-deploy:
@@ -22,7 +22,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Build the angular project
-        run: npm run build
+        run: npm run build --prod
       - name: Deploy to firebase
         uses: w9jds/firebase-action@master
         with:
