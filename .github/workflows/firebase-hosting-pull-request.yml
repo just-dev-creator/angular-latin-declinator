@@ -8,13 +8,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: npm run build --prod
+      - name: Use Node.js 12.8
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.8
+      - name: Install dependencies
+        run: npm install
+        working-directory: ./declinator
+      - name: Build
+        run: npm run build --prod
         working-directory: './declinator'
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_LATIN_DECLINATOR }}'
           projectId: latin-declinator
-          entryPoint: './declinator'
+          entryPoint: ./declinator
         env:
           FIREBASE_CLI_PREVIEWS: hostingchannels
