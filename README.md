@@ -1,7 +1,6 @@
 # Latin declinator
 ## Overview
-This project is a tool for people who need to decline latin words in the o/a declination class. (3. declination coming soon!).
-
+This project is a tool for people who need to decline latin words in the o/a and third declination class.
 ## Live preview
 You can visit a life preview on [this site](https://latin-declinator.web.app/). To decline a word, you just need to fill in the word in the table.
 
@@ -17,7 +16,7 @@ git clone "https://github.com/just-dev-creator/angular-latin-declinator" && cd a
 
 ## Run
 ```bash
-ng serve
+yarn start
 ```
 
 ## Todo
