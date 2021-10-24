@@ -1,4 +1,5 @@
 # Latin declinator
+[![CodeFactor](https://www.codefactor.io/repository/github/just-dev-creator/angular-latin-declinator/badge)](https://www.codefactor.io/repository/github/just-dev-creator/angular-latin-declinator)
 ## Overview
 This project is a tool for people who need to decline latin words in the o/a and third declination class.
 ## Live preview
