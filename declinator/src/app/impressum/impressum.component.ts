@@ -20,11 +20,11 @@ export class ImpressumComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  toggleImpressum() {
+  toggleImpressum(): void {
     this.impressumActivated = !this.impressumActivated;
   }
 
-  toggleData() {
+  toggleData(): void {
     this.dataActivated = !this.dataActivated;
   }
 }
