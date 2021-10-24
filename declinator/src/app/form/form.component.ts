@@ -42,7 +42,7 @@ export class FormComponent implements OnInit {
   }
 
   get getVal(): string {
-    if (!this.wortstamm) {return '';}
+    if (!this.wortstamm) {return ''; }
     else if (this.kasus === 'nom') {
       if (this.nummerus === 0) {
         if (this.gender === 'm') {
@@ -156,7 +156,7 @@ export class FormComponent implements OnInit {
   }
 
   get placeholder(): string {
-    if (this.wortstamm) {return '';}
+    if (this.wortstamm) {return ''; }
     else if (this.kasus === 'nom') {
       if (this.nummerus === 0) {
         return 'servus';

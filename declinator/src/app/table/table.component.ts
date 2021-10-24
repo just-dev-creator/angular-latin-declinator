@@ -73,7 +73,7 @@ export class TableComponent implements OnInit {
         }
       } else {
         if (this.entry.slice(-1) === 'i') {
-          this.wortstamm = this.entry.slice(0,-1);
+          this.wortstamm = this.entry.slice(0, -1);
           this.gender = 'm';
         } else if (this.entry.slice(-2) === 'ae') {
           this.wortstamm = this.entry.slice(0, -2);
