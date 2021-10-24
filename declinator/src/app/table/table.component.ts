@@ -33,9 +33,9 @@ export class TableComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('=====================================================================================');
-    console.log('Du bist ja ein richtiger HACKERMANS und hast die Konsole gefunden!');
-    console.log('=====================================================================================');
+    console.log('=====================================================================================\n' + 
+    'Du bist ja ein richtiger HACKERMANS und hast die Konsole gefunden!\n' +
+    '=====================================================================================');
   }
 
   onKey(event: KeyboardEvent, kasus: string, nummerus: Byte): void {
@@ -184,7 +184,6 @@ export class TableComponent implements OnInit {
   }
 
   changeEasterEgg(): void {
-    console.log('change | ' + this.easterEggTimes);
     if (!this.easterEggTimes) {
       this.easterEggTimes = 1;
     } else {
