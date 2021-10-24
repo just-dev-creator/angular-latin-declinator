@@ -33,7 +33,7 @@ export class TableComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('=====================================================================================\n' + 
+    console.log('=====================================================================================\n' +
     'Du bist ja ein richtiger HACKERMANS und hast die Konsole gefunden!\n' +
     '=====================================================================================');
   }
