@@ -22,7 +22,7 @@ export class TableComponent implements OnInit {
   easterEggTimes: any;
 //  thirddeclination = false;
   // eslint-disable-next-line @typescript-eslint/ban-types
-  calcEvent: EventEmitter<() => void> = new EventEmitter();
+  calcEvent: EventEmitter<Function> = new EventEmitter();
   constructor() { }
   get onKeyFunction() {
     return this.onKey.bind(this);
