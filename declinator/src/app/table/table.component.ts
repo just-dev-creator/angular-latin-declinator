@@ -22,7 +22,7 @@ export class TableComponent implements OnInit {
   easterEggTimes: any;
 //  thirddeclination = false;
   // eslint-disable-next-line @typescript-eslint/ban-types
-  calcEvent: EventEmitter<Function> = new EventEmitter();
+  calcEvent: EventEmitter<() => void> = new EventEmitter();
   constructor() { }
   get onKeyFunction() {
     return this.onKey.bind(this);
@@ -38,8 +38,10 @@ export class TableComponent implements OnInit {
     console.log('=====================================================================================');
   }
 
-  onKey(event: KeyboardEvent, kasus: string, nummerus: Byte) {
-    if (!this.autoCalc) {return;}
+  onKey(event: KeyboardEvent, kasus: string, nummerus: Byte): void {
+    if (!this.autoCalc) {
+      return;
+    }
     this.entry = (event.target as HTMLInputElement).value;
     this.calculate(this.entry, kasus, nummerus);
 
@@ -55,12 +57,12 @@ export class TableComponent implements OnInit {
     return '';
   }
 
-  calculate(entry: string, kasus: string, nummerus: Byte) {
+  calculate(entry: string, kasus: string, nummerus: Byte): void {
     this.entry = entry;
     if (kasus === 'nom') {
       if (nummerus === 0) {
         if (this.entry.slice(-2) === 'us') {
-          this.wortstamm = this.entry.slice(0,-2);
+          this.wortstamm = this.entry.slice(0, -2);
           this.gender = 'm';
         } else if (this.entry.slice(-1) === 'a') {
           this.wortstamm = this.entry.slice(0, -1);
@@ -171,7 +173,7 @@ export class TableComponent implements OnInit {
         }
       } else {
         if (this.entry.slice(-2) === 'is') {
-          this.wortstamm = this.entry.slice(0,-2);
+          this.wortstamm = this.entry.slice(0, -2);
           this.gender = 'mnf';
         } else if (this.entry.slice(-4) === 'ibus') {
           this.wortstamm = this.entry.slice(0, -4);
@@ -181,7 +183,7 @@ export class TableComponent implements OnInit {
     }
   }
 
-  changeEasterEgg() {
+  changeEasterEgg(): void {
     console.log('change | ' + this.easterEggTimes);
     if (!this.easterEggTimes) {
       this.easterEggTimes = 1;
