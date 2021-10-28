@@ -41,6 +41,9 @@ jobs:
         with:
           name: page-prod
           path: declinator/dist
+      - name: Change base to subdir
+        run: sed -i 's/<base href="\/">/<base href="\/angular-latin-declinator\/">/g' index.html
+        working-directory: ./declinator
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
@@ -59,6 +62,7 @@ jobs:
         with:
           name: page-prod
           path: .
+
       - name: Deploy to GitHub pages
         uses: crazy-max/ghaction-github-pages@v2
         with:
