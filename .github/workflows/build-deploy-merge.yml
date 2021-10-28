@@ -62,6 +62,6 @@ jobs:
       - name: Deploy to GitHub pages
         uses: crazy-max/ghaction-github-pages@v2
         with:
-          build_dir: .
+          build_dir: declinator
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
