@@ -12,7 +12,6 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Byte } from '@angular/compiler/src/util';
 import { Component, Input, OnInit, EventEmitter } from '@angular/core';
 import { NgModel } from '@angular/forms';
 
@@ -30,7 +29,7 @@ export class FormComponent implements OnInit {
   @Input()
   kasus: string | undefined;
   @Input()
-  nummerus: Byte | undefined;
+  nummerus: number | undefined;
   @Input()
   gender: string | undefined;
   @Input()
